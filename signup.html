@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up</title>
+  <style>
+    body { font-family: Arial,
+       sans-serif;
+        padding: 50px; 
+      }
+    .form-container {
+       max-width: 400px;
+        margin: auto; border: 1px solid #ddd;
+         padding: 20px;
+          border-radius: 10px;
+           background-color: rgb(223, 255, 255);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+         }
+    input {
+       width: 90%; 
+       padding: 10px; 
+      }
+    button { 
+      width: 100px;
+       height: 30px; 
+       background-color: rgb(46, 255, 206);
+        color: rgb(0, 0, 0);
+         border: none;
+          border-radius: 5%;
+         }
+    .error {
+       color: red; 
+       font-size: 0.9em; 
+      }
+    a { 
+      color: rgb(157, 0, 255);
+     }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <p class="error" id="nameError"></p>
+
+      <input type="email" id="email" placeholder="Email" required>
+      <p class="error" id="emailError"></p>
+
+      <input type="password" id="password" placeholder="Password" required>
+      <p class="error" id="passwordError"></p>
+
+      <button type="submit">Register</button>
+    </form>
+    <p>Already have an account? <a href="login.html">Login</a></p>
+  </div>
+
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+
+      let isValid = true;
+
+      // ✅ Name validation
+      if (name.length < 3) {
+        document.getElementById("nameError").textContent = "Name must be at least 3 characters.";
+        isValid = false;
+      } else {
+        document.getElementById("nameError").textContent = "";
+      }
+
+      // ✅ Email validation
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        document.getElementById("emailError").textContent = "Enter a valid email.";
+        isValid = false;
+      } else {
+        document.getElementById("emailError").textContent = "";
+      }
+
+      // ✅ Password validation
+      if (password.length < 6) {
+        document.getElementById("passwordError").textContent = "Password must be at least 6 characters.";
+        isValid = false;
+      } else {
+        document.getElementById("passwordError").textContent = "";
+      }
+      
+      // ✅ If all checks pass
+      if (isValid) {
+        const savedEmail = JSON.parse(localStorage.getItem("email"));
+        const savedPassword = JSON.parse(localStorage.getItem("password"));
+
+        if (savedEmail === email) {
+          document.getElementById("emailError").textContent = "You already have an account. Please login.";
+          return;
+        }
+        if (savedPassword === password) {
+          document.getElementById("passwordError").textContent = "Password already exists. Choose another.";
+          return;
+        }
+
+        // Save new data
+        localStorage.setItem("email", JSON.stringify(email));
+        localStorage.setItem("password", JSON.stringify(password));
+
+        alert("Registered successfully!");
+        document.getElementById("signupForm").reset();
+
+        // Redirect to index.html
+        window.location.href = "login.html";
+      }
+    });
+  </script>
+</body>
+</html>

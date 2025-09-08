@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 50px;
+    }
+    .form-container {
+      max-width: 400px;
+      margin: auto;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: rgb(223, 255, 255);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    input {
+      width: 90%;
+      margin: 10px 0;
+      padding: 10px;
+    }
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+     button{
+      width: 100px;
+      height: 30px;
+      background-color: rgb(46, 255, 206);
+      color: rgb(0, 0, 0);
+      border: none;
+      border-radius: 20px;
+  
+     }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="email" id="loginEmail" placeholder="Email" required>
+      <p class="error" id="loginEmailError"></p>
+
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <p class="error" id="loginPasswordError"></p>
+
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="signup.html" style="color: blueviolet;">Sign Up</a></p>
+  </div>
+
+<script>
+  document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById("loginEmail").value.trim();
+    const password = document.getElementById("loginPassword").value.trim();
+
+    // ✅ Use same keys as signup
+    let storedEmail = JSON.parse(localStorage.getItem("email"));
+    let storedPassword = JSON.parse(localStorage.getItem("password"));
+
+    if (storedEmail === email && storedPassword === password) {
+      alert("Login successful");
+      document.getElementById("loginForm").reset();
+
+      window.location.href = "index.html"; // redirect after login
+    } else {
+      document.getElementById("loginEmailError").textContent = "Invalid email or password!";
+      document.getElementById("loginPasswordError").textContent = "";
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Study Circle</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+     /* blog */
+  .hero-section {
+  position: relative;
+  height: 90vh;
+  background-position: center;
+  background-size: cover;
+}
+
+.hero-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(90, 90, 91, 0.292); /* semi-transparent overlay */
+  z-index: 1;
+}
+
+.hero-section .container-herosection {
+  position: relative;
+  z-index: 2;
+}
+  
+  .blog-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  
+  }
+
+  .blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+
+  .blog-card img {
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    border-bottom: 4px solid #f0f0f0;
+  }
+
+  .blog-card .card-body {
+    padding: 15px;
+    min-height: 200px;
+
+  }
+
+  .blog-card .card-title {
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #222;
+  }
+
+  .blog-card .card-text {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+  }
+
+  .blog-card .btn {
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 0.85rem;
+   background-color: #07cd9c;
+  }
+
+  .btn-read {
+    background: black;
+    color: white;
+    border: none;
+  }
+
+  .btn-read:hover {
+    background: #333;
+    color: white;
+  }
+
+  .btn-delete {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+  }
+
+  .btn-delete:hover {
+    background: #e60000;
+    color: white;
+  }
+
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg custom-navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Study-circle</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item me-4">
+          <a class="nav-link active fw-bold" aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item me-4">
+          <a class="nav-link fw-bold" href="studyroom.html">Study room</a>
+        </li>
+        <li class="nav-item me-4">
+          <a class="nav-link fw-bold" href="rules.html">Rules</a>
+        </li>
+        <li class="nav-item me-4">
+          <a class="nav-link fw-bold" href="blog.html">Blog</a>
+        </li>
+         <li class="nav-item me-4">
+            <a class="nav-link fw-bold" href="contactus.html">Contact</a>
+          </li>
+      </ul>
+      <a class="btn login-btn ms-auto" href="login.html" role="button">Login</a>
+    </div>
+  </div>
+</nav>
+
+  
+
+
+
+<!-- Hero -->
+<section class="hero-section d-flex align-items-center justify-content-center text-center text-dark" style="height: 90vh; background-image: url(https://plus.unsplash.com/premium_photo-1661265944044-bc7248ae54f9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
+  <div class="overlay"></div>
+  <div class="container-herosection">
+    <h1 class="display-4 fw-bold">Insights & Ideas to Supercharge Your Study</h1>
+    <p class="lead" style="color: rgb(43, 56, 56);">
+      Explore tips, strategies, and real stories from learners like you. Whether it's exam hacks or
+      productivity methods — our blog is your go-to guide.
+    </p>
+    <div class="mt-4">
+      <a href="#blogs" class="btn m-3" style="background-color: black; color: white;">Browse articles</a>
+      <a href="createblog.html" class="btn m-3" style="background-color: rgba(159, 68, 233, 0.934); color: white;">Create New Blog</a>
+    </div>
+  </div>
+</section>
+
+<!-- Blogs -->
+<div class="container my-5" id="blogs">
+
+  <div class="row g-4" id="staticBlogs">
+    <!-- 1 -->
+    <div class="'col-sm-6 col-lg-4 mb-4'">
+      <div class="card blog-card">
+        <img src="https://udyamclasses.com/wp-content/uploads/2025/04/NEET-Preparation-1.jpg" class="card-img-top" alt="Blog">
+        <div class="card-body">
+          <h5 class="card-title">NEET Preparation: Start Smart</h5>
+          <p class="card-text">Syllabus mapping, NCERT-first approach, and how to build a realistic timetable that sticks.</p>
+          <a href="viewblog.html?static=0" class="btn btn-read btn-sm">Read Full Blog</a>
+        </div>
+      </div>
+    </div>
+    <!-- 2 -->
+    <div class="'col-sm-6 col-lg-4 mb-4'">
+      <div class="card blog-card">
+        <img src="https://images.pexels.com/photos/714701/pexels-photo-714701.jpeg?cs=srgb&dl=pexels-jeshoots-com-147458-714701.jpg&fm=jpg" class="card-img-top" alt="Blog">
+        <div class="card-body">
+          <h5 class="card-title">Time Management for Students</h5>
+          <p class="card-text">Plan your week, batch tasks, and keep buffers so you never fall behind.</p>
+          <a href="viewblog.html?static=1" class="btn btn-read btn-sm">Read Full Blog</a>
+        </div>
+      </div>
+    </div>
+    <!-- 3 -->
+    <div class="'col-sm-6 col-lg-4 mb-4'">
+      <div class="card blog-card">
+        <img src="https://blog.geetauniversity.edu.in/wp-content/uploads/2024/01/the-pomodoro-technique.jpg" class="card-img-top" alt="Blog">
+        <div class="card-body">
+          <h5 class="card-title">Pomodoro: Focus in Short Sprints</h5>
+          <p class="card-text">25–5 cycles, session goals, and how to stop “micro-distractions”.</p>
+          <a href="viewblog.html?static=2" class="btn btn-read btn-sm">Read Full Blog</a>
+        </div>
+      </div>
+    </div>
+    <!-- 4 -->
+    <div class="'col-sm-6 col-lg-4 mb-4'">
+      <div class="card blog-card">
+        <img src="https://i.ytimg.com/vi/gIsSPv6p0Ho/maxresdefault.jpg" class="card-img-top" alt="Blog">
+        <div class="card-body">
+          <h5 class="card-title">Active Recall & Spaced Repetition</h5>
+          <p class="card-text">Why testing yourself beats rereading and how to space reviews for max retention.</p>
+          <a href="viewblog.html?static=3" class="btn btn-read btn-sm">Read Full Blog</a>
+        </div>
+      </div>
+    </div>
+    <!-- 5 -->
+    <div class="'col-sm-6 col-lg-4 mb-4'">
+      <div class="card blog-card">
+        <img src="https://images.unsplash.com/photo-1591462391971-9ffc57b382b9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3RpY2t5JTIwbm90ZXxlbnwwfHwwfHx8MA%3D%3D" class="card-img-top" alt="Blog">
+        <div class="card-body">
+          <h5 class="card-title">Note-Taking Systems that Work</h5>
+          <p class="card-text">Cornell, outline, and mind maps—when to use which for faster revision.</p>
+          <a href="viewblog.html?static=4" class="btn btn-read btn-sm">Read Full Blog</a>
+        </div>
+      </div>
+    </div>
+    <!-- 6 -->
+    <div class="'col-sm-6 col-lg-4 mb-4'">
+      <div class="card blog-card">
+        <img src="https://images.unsplash.com/photo-1480694313141-fce5e697ee25?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bW9iaWxlJTIwYXBwfGVufDB8fDB8fHww" class="card-img-top" alt="Blog">
+        <div class="card-body">
+          <h5 class="card-title">Top 10 Study Apps</h5>
+          <p class="card-text">Flashcards, to-dos, PDFs, and focus timers to power up your grind.</p>
+          <a href="viewblog.html?static=5" class="btn btn-read btn-sm">Read Full Blog</a>
+        </div>
+      </div>
+    </div>
+    <!-- 7 -->
+    <div class="'col-sm-6 col-lg-4 mb-4'">
+      <div class="card blog-card">
+        <img src="https://hclhealthcare.in/wp-content/uploads/2022/04/Beat-your-childs-school-exam-stress.png" class="card-img-top" alt="Blog">
+        <div class="card-body">
+          <h5 class="card-title">Beat Exam Stress</h5>
+          <p class="card-text">Breathing drills, mini-breaks, and simple routines to stay steady.</p>
+          <a href="viewblog.html?static=6" class="btn btn-read btn-sm">Read Full Blog</a>
+        </div>
+      </div>
+    </div>
+    <!-- 8 -->
+    <div class="'col-sm-6 col-lg-4 mb-4'">
+      <div class="card blog-card">
+        <img src="https://blogcdn.aakash.ac.in/wordpress_media/2017/11/Day-vs-Night-studies.jpg" class="card-img-top" alt="Blog">
+        <div class="card-body">
+          <h5 class="card-title">Morning vs Night Study</h5>
+          <p class="card-text">Pick your peak hours and match topics to your energy levels.</p>
+          <a href="viewblog.html?static=7"  class="btn btn-read btn-sm">Read Full Blog</a>
+        </div>
+      </div>
+    </div>
+    <!-- 9 -->
+    <div class="'col-sm-6 col-lg-4 mb-4'">
+      <div class="card blog-card">
+        <img src="https://aliabdaal.com/wp-content/uploads/2020/10/How-To-Stop-Procrastinating-ali-abdaal.jpg" class="card-img-top" alt="Blog">
+        <div class="card-body">
+          <h5 class="card-title">Stop Procrastinating</h5>
+          <p class="card-text">2-minute rule, environment resets, and starting before you feel ready.</p>
+          <a href="viewblog.html?static=8" class="btn btn-read btn-sm">Read Full Blog</a>
+        </div>
+      </div>
+    </div>
+    <!-- 10 -->
+    <div class="'col-sm-6 col-lg-4 mb-4'">
+      <div class="card blog-card">
+        <img src="https://thumbs.dreamstime.com/b/study-group-multi-ethnic-students-9460768.jpg" class="card-img-top" alt="Blog">
+        <div class="card-body">
+          <h5 class="card-title">Group Study that Actually Works</h5>
+          <p class="card-text">Small groups, clear roles, and time-boxed sessions = productivity.</p>
+          <a href="viewblog.html?static=9"  class="btn btn-read btn-sm">Read Full Blog</a>
+        </div>
+      </div>
+    </div>
+    <!-- 11 -->
+    <div class="'col-sm-6 col-lg-4 mb-4'">
+      <div class="card blog-card">
+        <img src="https://i.ytimg.com/vi/UBzUJB8cLkI/hqdefault.jpg" class="card-img-top" alt="Blog">
+        <div class="card-body">
+          <h5 class="card-title">Build Consistency</h5>
+          <p class="card-text">Habit loops, streak tracking, and gentle accountability.</p>
+          <a href="viewblog.html?static=10"  class="btn btn-read btn-sm">Read Full Blog</a>
+        </div>
+      </div>
+    </div>
+    <!-- 12 -->
+    <div class="'col-sm-6 col-lg-4 mb-4'">
+      <div class="card blog-card">
+        <img src="https://media.licdn.com/dms/image/v2/D5612AQHotGsXsCPcOw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1737791857532?e=2147483647&v=beta&t=xrNnNnTnxtwc-2wVajB_bcKO_rIcngPKH3rfibVshkA" class="card-img-top" alt="Blog">
+        <div class="card-body">
+          <h5 class="card-title">The Science of Memory</h5>
+          <p class="card-text">Encoding, storage, retrieval—and how to study with your brain in mind.</p>
+          <a href="viewblog.html?static=11" class="btn btn-read btn-sm">Read Full Blog</a>
+        </div>
+      </div>
+    </div>
+    <!-- 13 -->
+    <div class="'col-sm-6 col-lg-4 mb-4'">
+      <div class="card blog-card">
+        <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?ixid=M3wxMzcxOTN8MHwxfHNlYXJjaHw1fHx3cml0ZXxlbnwwfHx8fDE3MzQ0MzA1MDV8MA&ixlib=rb-4.0.3&fm=jpg&w=4592&h=3448&fit=max" class="card-img-top" alt="Blog">
+        <div class="card-body">
+          <h5 class="card-title">Write Better Answers</h5>
+          <p class="card-text">Structure, keywords, and diagrams: make evaluators’ lives easy.</p>
+          <a href="viewblog.html?static=12"  class="btn btn-read btn-sm">Read Full Blog</a>
+        </div>
+      </div>
+    </div>
+    <!-- 14 -->
+    <div class="'col-sm-6 col-lg-4 mb-4'">
+      <div class="card blog-card">
+        <img src="https://careerplanb.co/wp-content/uploads/2025/08/30.jpg" class="card-img-top" alt="Blog">
+        <div class="card-body">
+          <h5 class="card-title">Smart Revision Plan</h5>
+          <p class="card-text">Reverse planning from exam day and weekly checkpoints that stick.</p>
+          <a href="viewblog.html?static=13" class="btn btn-read btn-sm">Read Full Blog</a>
+        </div>
+      </div>
+    </div>
+    <!-- 15 -->
+    <div class="'col-sm-6 col-lg-4 mb-4'">
+      <div class="card blog-card">
+        <img src="https://odblogs.zohowebstatic.com/sites/qntrl-blog/files/qntrl-blog/keep-focused.jpg" class="card-img-top" alt="Blog">
+        <div class="card-body">
+          <h5 class="card-title">Your Focus Environment</h5>
+          <p class="card-text">Lighting, posture, clutter-free desk, and soundscapes for deep work.</p>
+          <a href="viewblog.html?static=14" class="btn btn-read btn-sm">Read Full Blog</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dynamic blogs (from localStorage) -->
+  <h3 class="mt-5"> User Created Blogs</h3>
+  <div class="row g-4" id="dynamicBlogs"></div>
+</div>
+
+
+  <footer class="footer">
+  <div class="footer-container mt-3">
+    <!-- Brand / Quick Links -->
+    <div class="footer-section">
+      <h2>Study Circle</h2>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="studyroom.html">Studyroom</a></li>
+        <li><a href="rules.html">Rules</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contactus.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-section">
+      <h3>Stay Updated</h3>
+      <p>Subscribe to our newsletter for updates</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <a href="#">Facebook</a><br>
+      <a href="#">Twitter</a><br>
+      <a href="#">Instagram</a><br>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+  <p class="footer-bottom">© 2025 Study Circle. All Rights Reserved.</p>
+</footer>
+
+
+<script>
+  // Render dynamic blogs saved by createblog.html
+  const dynamicBlogsContainer = document.getElementById('dynamicBlogs');
+  let blogs = JSON.parse(localStorage.getItem('blogs')) || [];
+
+  function displayBlogs() {
+    dynamicBlogsContainer.innerHTML = '';
+
+    if (!Array.isArray(blogs) || blogs.length === 0) {
+      dynamicBlogsContainer.innerHTML = '<p class="text-center">No user-created blogs yet. Be the first to add one!</p>';
+      return;
+    }
+
+    blogs.forEach((blog, index) => {
+      const safeImg = (blog.imageUrl && blog.imageUrl.trim()) ? blog.imageUrl
+        : 'https://source.unsplash.com/600x400/?education,learning';
+
+      const safeSnippet = (blog.content || '').toString().slice(0, 150);
+
+      const col = document.createElement('div');
+      col.className = 'col-md-4 mb-4';
+      col.innerHTML = `
+        <div class="card blog-card">
+          <img src="${safeImg}" class="card-img-top" alt="Blog Image">
+          <div class="card-body">
+            <h5 class="card-title">${blog.title || 'Untitled Post'}</h5>
+            <p class="card-text">${safeSnippet}...</p>
+            <button class="btn  btn-sm " onclick="deleteBlog(${index})">Delete</button>
+            <a href="viewblog.html?index=${index}" class="btn text-white btn-sm">Read Full Blog</a>
+          </div>
+        </div>
+      `;
+      dynamicBlogsContainer.appendChild(col);
+    });
+  }
+
+  function deleteBlog(index) {
+    if (confirm('Delete this blog?')) {
+      blogs.splice(index, 1);
+      localStorage.setItem('blogs', JSON.stringify(blogs));
+      displayBlogs();
+    }
+  }
+
+  displayBlogs();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

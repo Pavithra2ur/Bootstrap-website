@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Meeting</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      padding: 20px;
+    }
+    .form-container {
+      max-width: 400px;
+      margin: auto;
+      background: rgb(222, 253, 252);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    input, textarea{
+      width: 90%;
+      margin: 10px 0;
+      padding: 10px;
+      border: none;
+    }
+    button {
+      background: #16dc83;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 10px;
+      padding:10px;
+      height: 35px;
+      margin-top: 20px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Create Meeting</h2>
+    <form id="meetingForm">
+      <input type="text" id="title" placeholder="Meeting Title" required>
+      <input type="date" id="date" required>
+      <input type="time" id="time" required>
+      <textarea id="description" placeholder="Description"></textarea>
+      <input type="text" id="link" placeholder="Meeting Link (auto-generated)" readonly>
+      <button type="submit">Save Meeting</button>
+    </form>
+  </div>
+
+  <script>
+    // Generate fake meeting link
+    function generateFakeMeetingURL() {
+      const randomId = Math.random().toString(36).substring(2, 8);
+      return `https://studygroup.com/meet/${randomId}`;
+    }
+
+    document.getElementById("link").value = generateFakeMeetingURL();
+
+    document.getElementById("meetingForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const meeting = {
+        title: document.getElementById("title").value,
+        date: document.getElementById("date").value,
+        time: document.getElementById("time").value,
+        description: document.getElementById("description").value,
+        link: document.getElementById("link").value
+      };
+
+      // Save in localStorage
+      let meetings = JSON.parse(localStorage.getItem("meetings")) || [];
+       if (!Array.isArray(meetings)) {
+    meetings = [];
+  }
+      meetings.push(meeting);
+      localStorage.setItem("meetings", JSON.stringify(meetings));
+
+      alert("Meeting Created Successfully!");
+      window.location.href = "studyroom.html"; // Redirect back to group page
+    });
+  </script>
+</body>
+</html>

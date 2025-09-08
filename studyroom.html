@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study Groups - Study Circle</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+  
+    
+    /* group */
+
+    
+ .group-card .card {
+      border: none;
+      border-radius: 20px;
+      padding: auto;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+       
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 220px;
+ 
+ 
+    }
+    .group-card .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+    .group-card .card-body{
+     /* background: linear-gradient(rgb(151, 233, 255),rgb(72, 191, 224));  */
+     border-radius: 20px;
+    }
+    .group-card h5 {
+      font-weight: bold;
+      color: #0b010e;
+    }
+    .group-card p {
+      color: #5a5a5a;
+    }
+    .member-count {
+      font-weight: bold;
+      color: #5a5a5a;
+      margin-top: 10px;
+    }
+    /* Buttons */
+    .btn-join {
+      background-color: #15d2b6;
+      color: #ffffff;
+      border-radius: 30px;
+      padding: 6px 15px;
+      border: none;
+    }
+    .btn-join:hover {
+      opacity: 0.9;
+       background-color: #15d2b6;
+      color: #ffffff;
+      border-radius: 30px;
+      padding: 6px 15px;
+      border: none;
+    }
+   
+    .btn-enter {
+      background:#2ee2fd;
+      color: #ffffff;
+      border-radius: 30px;
+      padding: 6px 15px;
+      border: none;
+    }
+    .btn-enter:hover {
+      opacity: 0.9;
+       background:#2ee2fd;
+      color: #ffffff;
+       border-radius: 30px;
+      padding: 6px 15px;
+      border: none;
+    }
+
+        /* meeting */
+
+     .meeting-list {
+    max-width: 1100px;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  .meeting-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding: 16px;
+  
+    transition: transform 0.2s ease,box-shadow 0.2s ease;
+  }
+
+  .meeting-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+
+  .meeting-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+    color: #333;
+  }
+
+  .meeting-card p {
+    margin: 4px 0;
+     font-size: 0.9rem;
+    color: #525252;
+  }
+
+  .meeting-card a {
+     display: inline-block;
+    margin-top: 6px;
+    font-size: 0.85rem;
+    color: #007bff;
+    text-decoration: none;
+    word-break: break-word;
+  }
+
+  .meeting-card a:hover {
+    text-decoration: underline;
+  }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg custom-navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Study-circle</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item me-4">
+          <a class="nav-link active fw-bold" aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item me-4">
+          <a class="nav-link fw-bold" href="studyroom.html">Study room</a>
+        </li>
+        <li class="nav-item me-4">
+          <a class="nav-link fw-bold" href="rules.html">Rules</a>
+        </li>
+        <li class="nav-item me-4">
+          <a class="nav-link fw-bold" href="blog.html">Blog</a>
+        </li>
+         <li class="nav-item me-4">
+            <a class="nav-link fw-bold" href="contactus.html">Contact</a>
+          </li>
+      </ul>
+      <a class="btn login-btn ms-auto" href="login.html" role="button">Login</a>
+    </div>
+  </div>
+</nav>
+
+
+
+
+<!-- Hero Section -->
+<section class="hero-section d-flex align-items-center justify-content-center text-center text-dark" style="height: 90vh; background-image: url(assets/study.png);">
+  <div class="overlay"></div>
+  <div class="container-herosection">
+    <h1 class="display-5 fs-1 fw-bold">Connect with peers, collaborate on subjects, and achieve goals together.</h1>
+    <p class="lead" style="color: rgb(43, 56, 56);">🤝Join or Create a Study Group</p>
+    <div class="mt-4">
+      <a href="creategroup.html" class="btn btn-lg" style="background-color: rgba(159, 68, 233, 0.934); color: white;">+ Create Group</a>
+    </div>
+  </div>
+</section>
+
+<div class="container py-5" >
+  <div class="row" id="groupContainer"></div>
+</div>
+<!-- Feature Section -->
+<div class="container py-5">
+  <h2 class="text-center fw-bold mb-5">📌 Study Tools</h2>
+  <div class="row g-4">
+
+    <!-- 1. Task / To-Do Tracker -->
+    <div class="col-md-12">
+      <div class="card shadow h-100">
+        <div class="card-body" style="background-color: #d8f9ff;">
+          <h5 class="card-title">✅ Task / To-Do Tracker</h5>
+          <div class="input-group mb-3">
+            <input type="text" id="taskInput" class="form-control" placeholder="New Task...">
+            <button class="btn" onclick="addTask()" style="background-color: #15d2b6;">Add</button>
+          </div>
+          <ul id="taskList" class="list-group"></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Focus Music / White Noise -->
+    <div class="col-md-12">
+      <div class="card shadow h-100">
+        <div class="card-body" style="background-color: #d8f9ff;">
+          <h5 class="card-title">🎵 Focus Music / White Noise</h5>
+          <audio id="focusAudio" controls style="width:100%;">
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <p class="mt-2 text-muted">Tip: Play soft music or white noise to boost concentration.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inside group.html -->
+    <div class="col-12" >
+     <div class="card shadow h-100">
+      <div class="card-body" style="background-color: #d8f9ff;">
+    <h5 class="card-title"> 🔗Connect Together</h5>
+<button onclick="window.location.href='createmeeting.html'" style="border-radius: 10px; width: 150px;  height:40px ;color: #000000; background-color: #15d2b6;; border-style: none; text-align: center;">
+  Create Meeting
+</button>
+    <div id="meetingList" class="meeting-list"></div>
+    </div>
+    </div> 
+  </div>
+
+    <!-- 5. Resource Library -->
+    <div class="col-12">
+      <div class="card shadow h-100">
+        <div class="card-body" style="background-color: #d8f9ff;">
+          <h5 class="card-title">📚 Resource Library</h5>
+          <ul id="resourceList" class="list-group mb-3"></ul>
+          <div class="input-group">
+            <input type="text" id="resourceInput" class="form-control" placeholder="Add a resource link...">
+            <button class="btn " onclick="addResource()" style="background-color: #15d2b6;">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+  <footer class="footer">
+  <div class="footer-container mt-3">
+    <!-- Brand / Quick Links -->
+    <div class="footer-section">
+      <h2>Study Circle</h2>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="studyroom.html">Studyroom</a></li>
+        <li><a href="rules.html">Rules</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contactus.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-section">
+      <h3>Stay Updated</h3>
+      <p>Subscribe to our newsletter for updates</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <a href="#">Facebook</a><br>
+      <a href="#">Twitter</a><br>
+      <a href="#">Instagram</a><br>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+  <p class="footer-bottom">© 2025 Study Circle. All Rights Reserved.</p>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const groupContainer = document.getElementById('groupContainer');
+
+// Hardcoded 10 groups
+const hardcodedGroups = [
+  { id: 'neet', name: 'NEET Preparation', description: 'Join fellow NEET aspirants to share resources, discuss topics, and stay motivated for your exam preparation.' },
+  { id: 'jee', name: 'JEE Preparation', description: 'Connect with JEE aspirants to exchange notes, problem-solving tips, and exam strategies.' },
+  { id: 'ai', name: 'AI & ML Enthusiasts', description: 'Discuss AI/ML concepts, share resources, and solve projects together.' },
+  { id: 'webdev', name: 'Web Development', description: 'Learn and share HTML, CSS, JS, React, and full-stack development tips.' },
+  { id: 'datasci', name: 'Data Science', description: 'Collaborate on data analysis, Python projects, and machine learning challenges.' },
+  { id: 'coding', name: 'Competitive Coding', description: 'Practice algorithms, data structures, and participate in coding challenges.' },
+  { id: 'design', name: 'UI/UX Design', description: 'Discuss design principles, Figma, Photoshop, and portfolio building.' },
+  { id: 'robotics', name: 'Robotics', description: 'Share ideas and projects on electronics, Arduino, and robotics competitions.' },
+  { id: 'career', name: 'Career Guidance', description: 'Get tips, resources, and guidance for exams, interviews, and professional growth.' },
+  { id: 'english', name: 'English Improvement', description: 'Practice communication, grammar, vocabulary, and speaking skills.' }
+];
+
+// Load user-created groups from localStorage
+let userGroups = JSON.parse(localStorage.getItem('userGroups')) || [];
+
+// Combine hardcoded + user groups
+function getAllGroups() {
+  return [...hardcodedGroups, ...userGroups];
+}
+
+// Members in localStorage
+let groupMembers = JSON.parse(localStorage.getItem('groupMembers')) || {};
+
+// Current user
+let currentUser = localStorage.getItem('currentUser') || prompt("Enter your name to continue:");
+localStorage.setItem('currentUser', currentUser);
+
+// Display groups
+function displayGroups() {
+  const allGroups = getAllGroups();
+  groupContainer.innerHTML = '';
+
+  allGroups.forEach(group => {
+    const groupId = group.id;
+    const isMember = groupMembers[groupId]?.includes(currentUser);
+    const memberCount = groupMembers[groupId]?.length || 0;
+
+    const col = document.createElement('div');
+    col.className = 'col-md-3 mb-4 group-card';
+    col.innerHTML = `
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">${group.name}</h5>
+          <p class="card-text">${group.description}</p>
+          <p class="member-count">👥 Members: ${memberCount}</p>
+          ${
+            isMember
+              ? `<a href="groupchat.html?groupId=${groupId}" class="btn btn-enter">Enter Group</a>`
+              : `<button class="btn btn-join join-btn" data-id="${groupId}">Join Group</button>`
+          }
+        </div>
+      </div>
+    `;
+    groupContainer.appendChild(col);
+  });
+
+  // Add join button functionality
+  document.querySelectorAll('.join-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const groupId = this.dataset.id;
+      if (!groupMembers[groupId]) groupMembers[groupId] = [];
+      if (!groupMembers[groupId].includes(currentUser)) {
+        groupMembers[groupId].push(currentUser);
+        localStorage.setItem('groupMembers', JSON.stringify(groupMembers));
+        displayGroups();
+      }
+    });
+  });
+}
+
+
+
+displayGroups();
+function loadTasks() {
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  const list = document.getElementById("taskList");
+  list.innerHTML = "";
+  tasks.forEach((task, i) => {
+    list.innerHTML += `
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        ${task}
+        <button class="btn btn-sm " onclick="deleteTask(${i})">❌</button>
+      </li>`;
+  });
+}
+function addTask() {
+  const input = document.getElementById("taskInput");
+  if (input.value.trim()) {
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    tasks.push(input.value.trim());
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    input.value = "";
+    loadTasks();
+  }
+}
+function deleteTask(i) {
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  tasks.splice(i, 1);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+  loadTasks();
+}
+loadTasks();
+
+
+let meetings = JSON.parse(localStorage.getItem("meetings")) || [];
+if (!Array.isArray(meetings)) {
+  meetings = []; // reset corrupted data
+}
+  let meetingList = document.getElementById("meetingList");
+
+meetings.forEach(meeting => {
+  let div = document.createElement("div");
+  div.className = "meeting-card";  // ✅ add class
+  div.innerHTML = `
+    <h3>${meeting.title}</h3>
+    <p>${meeting.date} at ${meeting.time}</p>
+    <p>${meeting.description}</p>
+    <a href="${meeting.link}" target="_blank">${meeting.link}</a>
+  `;
+  meetingList.appendChild(div);
+});
+
+
+
+/* --------- Resource Library --------- */
+function loadResources() {
+  const resources = JSON.parse(localStorage.getItem("resources")) || [];
+  const list = document.getElementById("resourceList");
+  list.innerHTML = "";
+  resources.forEach((link, i) => {
+    list.innerHTML += `
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <a href="${link}" target="_blank">${link}</a>
+        <button class="btn" onclick="deleteResource(${i})">❌</button>
+      </li>`;
+  });
+}
+function addResource() {
+  const input = document.getElementById("resourceInput");
+  if (input.value.trim()) {
+    const resources = JSON.parse(localStorage.getItem("resources")) || [];
+    resources.push(input.value.trim());
+    localStorage.setItem("resources", JSON.stringify(resources));
+    input.value = "";
+    loadResources();
+  }
+}
+function deleteResource(i) {
+  const resources = JSON.parse(localStorage.getItem("resources")) || [];
+  resources.splice(i, 1);
+  localStorage.setItem("resources", JSON.stringify(resources));
+  loadResources();
+}
+loadResources();
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
